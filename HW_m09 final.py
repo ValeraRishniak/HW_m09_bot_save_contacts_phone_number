@@ -1,5 +1,6 @@
 # словник що зберігає номери телефонів 
-contacts = {}
+contacts = {"cat": '342',
+            'dog': '098098'}
 
 
 # Декоратор
@@ -58,7 +59,7 @@ def change_phone(command):
 
 @input_error
 def get_phone(command):
-    name = command[0]
+    name = command[1]
     result = f'{name}: {contacts[name]}'
     return result
 
@@ -67,9 +68,9 @@ def get_phone(command):
 def show_all(*args):
     if len(contacts) == 0:
         return 'Your contacts book is empty'
-    text_to_return = ''
+    text_to_return = 'These are all your contacts: \n'
     for name, phone in contacts.items():
-        text_to_return += f'These are all your contacts: {name} - {phone}\n'
+        text_to_return += f'{name} - {phone}\n'
     return text_to_return
 
 @input_error
